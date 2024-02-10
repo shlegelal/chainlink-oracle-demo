@@ -12,7 +12,7 @@ module.exports = async (deployer, network, [defaultAccount]) => {
     console.log(`Operator address is ${Operator.address}`)
 
     let addrFile;
-    addrFile = path.join(__dirname, '..', 'config', 'addrs.env');
+    addrFile = path.join(__dirname, '..', '..', 'config', 'addrs.env');
 
     try {
         fs.unlinkSync(addrFile);
