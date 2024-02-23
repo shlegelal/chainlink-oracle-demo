@@ -1,0 +1,17 @@
+[Log]
+Level = 'debug'
+
+[WebServer]
+AllowOrigins = '\*'
+SecureCookies = false
+
+[WebServer.TLS]
+HTTPSPort = 0
+
+[[EVM]]
+ChainID = '1337'
+
+[[EVM.Nodes]]
+Name = 'ganache'
+WSURL = 'ws://host.docker.internal:8545'
+HTTPURL = 'HTTP://host.docker.internal:8545'
