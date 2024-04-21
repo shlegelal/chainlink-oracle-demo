@@ -1,0 +1,19 @@
+{
+  "name": "test_chainlink_oracle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle/truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "dependencies": {
+    "@chainlink/contracts": "^1.0.0",
+    "@chainlink/token": "^1.1.0",
+    "@openzeppelin/contracts": "4.9.6",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "truffle": "^5.3.14"
+  }
+}
