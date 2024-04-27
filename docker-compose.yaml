@@ -16,5 +16,5 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - /home/alan/GolandProjects/test-chainlink-oracle/chainlink:/chainlink/
+      - ~/test-chainlink-oracle/chainlink:/chainlink/
     command: node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
