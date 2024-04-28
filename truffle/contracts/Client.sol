@@ -10,7 +10,6 @@ import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 contract Client is ChainlinkClient, ConfirmedOwner {
     using Chainlink for Chainlink.Request;
 
-    uint256 constant private ORACLE_PAYMENT = 1 * LINK_DIVISIBILITY;
     uint256 public currentPrice;
 
     event RequestPriceFulfilled(
@@ -31,7 +30,8 @@ contract Client is ChainlinkClient, ConfirmedOwner {
 
     function requestPrice(
         address _oracle,
-        string memory _jobId
+        string memory _jobId,
+        uint256 payment
     ) public onlyOwner {
         Chainlink.Request memory req = _buildChainlinkRequest(
             stringToBytes32(_jobId),
@@ -44,7 +44,7 @@ contract Client is ChainlinkClient, ConfirmedOwner {
         );
 
         req._addInt("times", 100);
-        _sendChainlinkRequestTo(_oracle, req, ORACLE_PAYMENT);
+        _sendChainlinkRequestTo(_oracle, req, payment * LINK_DIVISIBILITY);
     }
 
 
@@ -64,20 +64,6 @@ contract Client is ChainlinkClient, ConfirmedOwner {
         require(
             link.transfer(msg.sender, link.balanceOf(address(this))),
             "Unable to transfer"
-        );
-    }
-
-    function cancelRequest(
-        bytes32 _requestId,
-        uint256 _payment,
-        bytes4 _callbackFunctionId,
-        uint256 _expiration
-    ) public onlyOwner {
-        _cancelChainlinkRequest(
-            _requestId,
-            _payment,
-            _callbackFunctionId,
-            _expiration
         );
     }
 

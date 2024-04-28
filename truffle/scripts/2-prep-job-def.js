@@ -14,12 +14,12 @@ module.exports = async () => {
     }
 
     fs.writeFileSync(addrFile, `
+name = "Get price -> Uint256"
 type = "directrequest"
 schemaVersion = 1
-name = "Get > Uint256 - (TOML)"
+maxTaskDuration = "0s"
 externalJobID = "fc1b8114-6f50-4be4-b585-22bc45459496"
 forwardingAllowed = false
-maxTaskDuration = "0s"
 contractAddress = "${Operator.address}"
 evmChainID = "1337"
 minIncomingConfirmations = 0
@@ -44,5 +44,5 @@ observationSource = """
     submit_tx    [type="ethtx" to="${Operator.address}" data="$(encode_tx)"]
 
     decode_log -> decode_cbor -> fetch -> parse -> multiply -> encode_data -> encode_tx -> submit_tx
-"""\n`);
+"""`);
 };

@@ -37,7 +37,6 @@ Chainlink oracle implementation with a local deploying on Ganache Ethereum chain
    - Create job in http://localhost:6688/jobs
    - Paste config from [job-definition.toml](config/job-definition.toml) to Job Spec
     ![chainlink-node-job-creation.png](img/chainlink-node-job-creation.png)
-   -  Paste Job ID from note to [job-id.env](config/job-id.env)
 
 ## Interacting with the Oracle
 - Run to request the current Dollar price in Rubles

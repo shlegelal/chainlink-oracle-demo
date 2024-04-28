@@ -1,9 +1,9 @@
+name = "Get price Uint256"
 type = "directrequest"
 schemaVersion = 1
-name = "Get > Uint256 - (TOML)"
+maxTaskDuration = "0s"
 externalJobID = "fc1b8114-6f50-4be4-b585-22bc45459496"
 forwardingAllowed = false
-maxTaskDuration = "0s"
 contractAddress = "YOUR_OPERATOR_CONTRACT_ADDRESS"
 evmChainID = "1337"
 minIncomingConfirmations = 0

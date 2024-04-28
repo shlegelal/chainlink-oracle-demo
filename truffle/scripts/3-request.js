@@ -1,11 +1,11 @@
 import path from "path";
 import fs from "fs";
 
+const jobId = "fc1b8114-6f50-4be4-b585-22bc45459496"
+
 const Client = artifacts.require("Client");
 const Operator = artifacts.require('Operator');
 
 module.exports = () => {
-    let addrFile = path.join(__dirname, '..', '..', 'config', 'job-id.env');
-    let job_id = fs.readFileSync(addrFile, "utf-8")
-    Client.requestEthereumPrice(Operator.address, job_id)
+    Client.requestEthereumPrice(Operator.address, jobId, 1)
 }
