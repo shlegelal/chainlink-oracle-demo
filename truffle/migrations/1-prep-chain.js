@@ -11,14 +11,11 @@ module.exports = async (deployer, network, [defaultAccount]) => {
     console.log(`Link address is ${LinkToken.address}`)
     console.log(`Operator address is ${Operator.address}`)
 
-    let addrFile;
-    addrFile = path.join(__dirname, '..', '..', 'config', 'addrs.env');
-
-    try {
-        fs.unlinkSync(addrFile);
-    } catch {
-        // delete if exists; ignore errors
+    const conf = {
+        linkTokenAddress: LinkToken.address,
+        operatorAddress: Operator.address
     }
 
-    fs.writeFileSync(addrFile, `LINK_CONTRACT_ADDRESS=${LinkToken.address}\nOPERATOR_CONTRACT_ADDRESS=${Operator.address}\n`);
+    let addrFile = path.join(__dirname, '..', '..', 'config', 'addrs.json');
+    fs.writeFileSync(addrFile, JSON.stringify(conf, null, '\t'));
 };

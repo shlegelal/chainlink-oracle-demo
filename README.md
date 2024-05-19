@@ -11,12 +11,15 @@ Chainlink oracle implementation with a local deploying on Ganache Ethereum chain
 - `chainlink/` and `postgress/`: These folders hold config to start chainlink node
 - `config/`: This folder holds generated data after deploying contracts
 
-## Prepare oracle
+## Install dependencies
+1. `cd truffle/ && npm install`
+
+## Run the Oracle
 1. Prepare test Ethereum network
    - start a Ganache workspace that includes [truffle-config.js](truffle/truffle-config.js) from this project
 2. Migrate contracts
     ```shell
-    cd truffle/ && truffle migrate --network ganache
+    truffle migrate --network ganache
     ```
 3. Run [Chainlink Node](https://docs.chain.link/chainlink-nodes/v1/running-a-chainlink-node)
    - e.g. [docker-compose.yaml](docker-compose.yaml)

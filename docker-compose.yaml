@@ -1,6 +1,6 @@
 services:
   chainlink_db:
-    image: postgres
+    image: postgres:16.2-alpine3.19
     container_name: chainlink_postgres
     restart: always
     ports:
